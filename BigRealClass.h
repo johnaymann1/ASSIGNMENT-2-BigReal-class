@@ -10,7 +10,7 @@ that can hold unlimited decimal integer values and performs arithmetic operation
 such as: +, -, <, and >.
  */
  
-#ifdef BIGREAL_BIGREALCLASS_H
+#ifndef BIGREAL_BIGREALCLASS_H
 #define BIGREAL_BIGREALCLASS_H
 #include <iostream>
 #include <string>
@@ -18,35 +18,19 @@ such as: +, -, <, and >.
 
 using namespace std;
 
-class BigReal:public BigDecimalInt {
-    
-public:
-    
-    //Constructors
-    
-    BigReal (double realNumber = 0.0); //defult constructor
-    BigReal (string realNumber);
-    BigReal (BigDecimalInt bigInteger);
-    BigReal (const BigReal& other); //Copy constructor
-    BigReal (BigReal& other); //Move constructor
-    
-    //Operators
-    
-    BigReal& operator= (BigReal& other); // Assignment operator
-   // BigReal& operator= (BigReal& other); //Move assignment
-    BigReal operator+ (BigReal& other);
-    BigReal operator- (BigReal& other);
-    bool operator<  (BigReal anotherReal);
-    bool operator>  (BigReal anotherReal);
-    bool operator== (BigReal anotherReal);
-    friend ostream& operator << (ostream& out, BigReal num); friend istream& operator >> (istream& out, BigReal num);
+class BigReal{
+    private:
+        BigDecimalInt bPoint;
+        BigDecimalInt aPoint;
 
-    
-    //Members
-    int size();
-    int Sign();
-    
-    
+    public:
+        BigReal (double realNumber = 0.0); // Default constructor
+        BigReal (string realNumber);
+        BigReal (BigDecimalInt bigInteger);
+        BigReal (const BigReal& other); // Copy constructor
+        BigReal (BigReal&& other); // Move constructor
+        BigReal& operator= (BigReal& other); // Assignment operator
+        BigReal& operator= (BigReal&& other); // Move assignment
 
 };
 

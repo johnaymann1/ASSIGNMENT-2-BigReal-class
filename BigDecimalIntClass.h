@@ -1,7 +1,7 @@
-// FCAI – Object-Oriented Programming 1 – 2022 - Assignment 2
+// FCAI – Object-Oriented Programming 1 – 2022 - Assignment 1
 // Program Name: BigDecimalInt
 // Last Modification Date: 13/10/2022
-// John Ayman Naim   20210107  S15
+// Author1 and ID and Group: Basmala Mohamed Sayed Gad  ID: 20210090 (a, b, c)
 // Author2 and ID and Group: Aya Ali Hassan  ID: 20210083 (d, e)
 // Author3 and ID and Group: Mohamed Ashraf Fahim  ID: 20210329 (f, i, j , k)
 /*
@@ -14,7 +14,6 @@ such as: +, -, <, and >.
 #define BIGDECIMALINT_BIGDECIMALINTCLASS_H
 
 #include <iostream>
-#include <string>
 #include <deque>
 #include <regex>
 
@@ -23,8 +22,7 @@ using namespace std;
 class BigDecimalInt{
 private:
     string number;
-    char sign;
-    void setNumber(string num);
+    char signNumber;
     bool checkValidInput(string input);
 
 public:
@@ -36,18 +34,18 @@ public:
     BigDecimalInt operator - (BigDecimalInt anotherDec);
     friend ostream &operator << (ostream &out, BigDecimalInt num);
     int size();
-    int Sign();
-    void push_back(char ch);
-    void push_front(char ch);
+    int sign();
+    void setNumber(string num);
+    string getNumber(){
+        return number;
+    }
 
     BigDecimalInt(){}
     BigDecimalInt(string num)
     {
         setNumber(num);
     }
-    string getnum(){
-        return number;
-    }
+
 };
 
 #endif //BIGDECIMALINT_BIGDECIMALINTCLASS_H
