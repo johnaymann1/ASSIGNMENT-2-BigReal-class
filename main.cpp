@@ -10,13 +10,17 @@ that can hold unlimited decimal integer values and performs arithmetic operation
 such as: +, -, <, and >.
  */
 
-#include "BigDecimalIntClass.h"
-//#include "BigReal.h"
+#include "BigRealclass.cpp"
+#include "BigReal.h"
+
 
 int main()
 {
-    BigDecimalInt n1("+1234");
-    cout<<n1;
+    BigReal n1("1234.233");
+    BigReal n2("-1234.233");
+    if (n1>n2)
+        cout<<n1;
+    return 0;
 
 }
 
