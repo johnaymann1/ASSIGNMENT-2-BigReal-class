@@ -18,11 +18,12 @@ such as: +, -, <, and >.
 
 using namespace std;
 
-class BigReal{
+class BigReal: public BigDecimalInt{
     private:
         BigDecimalInt bPoint;
         BigDecimalInt aPoint;
-
+        char sign;
+        int size;
     public:
         BigReal (double realNumber = 0.0); // Default constructor
         BigReal (string realNumber);
@@ -31,6 +32,10 @@ class BigReal{
         BigReal (BigReal&& other); // Move constructor
         BigReal& operator= (BigReal& other); // Assignment operator
         BigReal& operator= (BigReal&& other); // Move assignment
+        bool operator==(BigReal other);
+        bool operator>(BigReal other);
+        char getsign();
+        int getsize();
 
 };
 
