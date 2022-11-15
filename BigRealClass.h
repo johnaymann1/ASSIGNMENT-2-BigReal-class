@@ -22,8 +22,8 @@ class BigReal: public BigDecimalInt{
     private:
         BigDecimalInt bPoint;
         BigDecimalInt aPoint;
-        char sign;
         int size;
+        char sign;
     public:
         BigReal (double realNumber = 0.0); // Default constructor
         BigReal (string realNumber);
@@ -32,10 +32,14 @@ class BigReal: public BigDecimalInt{
         BigReal (BigReal&& other); // Move constructor
         BigReal& operator= (BigReal& other); // Assignment operator
         BigReal& operator= (BigReal&& other); // Move assignment
-        bool operator==(BigReal other);
-        bool operator>(BigReal other);
+        bool operator==(BigReal &other);
+        bool operator>(BigReal &other);
+        bool operator<(BigReal &other);
         char getsign();
         int getsize();
+        friend ostream &operator<<(ostream &out, BigReal &realNumber);
+        friend istream &operator>>(ostream &in, BigReal &realNumber);
+
 
 };
 
