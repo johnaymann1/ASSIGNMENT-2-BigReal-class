@@ -153,10 +153,15 @@ bool BigReal:: operator==(BigReal &other)
 }
 ostream &operator<<(ostream &out, BigReal &realNumber)
 {
-    out<<realNumber.bPoint<<"."<<realNumber.aPoint;
-    return out;
-
-
+    if(realNumber.aPoint.signNumber=='+'){
+        out<<realNumber.bPoint<<"."<<realNumber.aPoint;
+        return out;
+    }
+    if(realNumber.aPoint.signNumber=='-'){
+        realNumber.aPoint.setSign('+');
+        out<<realNumber.bPoint<<"."<<realNumber.aPoint;
+        return out;
+    }
 }
 
 istream &operator>>(istream &in, BigReal &realNumber)
