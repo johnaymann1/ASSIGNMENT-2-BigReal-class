@@ -5,30 +5,37 @@
 //#include "BigDecimalIntClass.h"
 
 
+
 BigReal::BigReal(string realNumber){
-    string before,after;
-    int z;
-    while (realNumber.at(realNumber.length() - 1)=='0')
-    {
-        realNumber.pop_back();
-    }
-    for(int i = 0; i < realNumber.size(); i++){
-        if(realNumber[i] == '.') i = z;
-    }
-    for(int i = 0 ; i < z; i++){
-        before += realNumber[i];
-    }
-    for(int i = z+1; i < realNumber.size(); i++){
-        after += realNumber[i];
-    }
-    if(realNumber[0] == '+')
-        sign = '+';
-    else if (realNumber[0] == '-')
-        sign = '-';
-    else
-        sign = '+';
-    bPoint = BigDecimalInt(before);
-    aPoint = BigDecimalInt(after);
+string fraction_part;
+        string integer_part;
+        int idx = realNumber.find('.');
+        if (idx != -1){
+            integer_part = realNumber.substr(0, idx);
+            fraction_part = realNumber.substr(idx+1, realNumber.length());
+            if (integer_part[0] == '+' && integer_part.length() != 1) {
+                fraction_part.insert(fraction_part.begin(),'+');
+            } else if (integer_part[0] == '-' && integer_part.length() != 1) {
+                fraction_part.insert(fraction_part.begin(),'-');
+            } else if (integer_part[0] == '-' && integer_part.length() == 1) {
+                integer_part='0';
+                fraction_part.insert(fraction_part.begin(), '-');
+            } else if (integer_part[0] == '+' && integer_part.length() == 1) {
+                integer_part='0';
+                fraction_part.insert(fraction_part.begin(), '+');
+            }
+            else if(integer_part.empty()){
+                integer_part='+0';
+                fraction_part.insert(fraction_part.begin(),'+');
+            }
+        } else {
+            integer_part = realNumber;
+            fraction_part='0';
+        }
+        BigDecimalInt n1=integer_part;
+        BigDecimalInt n2=fraction_part;
+        bPoint=n1;
+        aPoint=n2;
 
 }
 
@@ -159,7 +166,6 @@ istream &operator>>(istream &in, BigReal &realNumber)
     realNumber=BigReal(str);
     return in;
 }
-
 
 
 void equal_fractions(BigDecimalInt &frac1,BigDecimalInt &frac2) //Puts '0' to make the two fractions equal in Size
