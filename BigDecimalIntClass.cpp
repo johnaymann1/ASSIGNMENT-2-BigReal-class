@@ -11,20 +11,15 @@ such as: +, -, <, and >.
  */
 
 #include "BigDecimalIntClass.h"
-
 void BigDecimalInt :: setSign(char sign){
     if (signNumber=='-')
         signNumber='+';
-
 }
-
-// regex function that checks the validation of the input.
 bool BigDecimalInt :: checkValidInput(string input)
 {
     regex validInput("[-+]?[0-9]+");
     return regex_match(input, validInput);
 }
-
 // constructor that takes a string as an input.
 void BigDecimalInt :: setNumber(string num)
 {
@@ -53,7 +48,6 @@ void BigDecimalInt :: setNumber(string num)
         exit(1);
     }
 }
-
 // operator < overloading function.
 bool BigDecimalInt :: operator < (const BigDecimalInt& anotherDec)
 {
@@ -88,7 +82,6 @@ bool BigDecimalInt :: operator < (const BigDecimalInt& anotherDec)
         return comp1 > comp2;
     }
 }
-
 // operator > overloading function.
 bool BigDecimalInt :: operator > (const BigDecimalInt &anotherDec)
 {
@@ -123,14 +116,12 @@ bool BigDecimalInt :: operator > (const BigDecimalInt &anotherDec)
         return comp1 < comp2;
     }
 }
-
 // operator == overloading function.
 bool BigDecimalInt :: operator == (const BigDecimalInt anotherDec)
 {
     if (signNumber == anotherDec.signNumber && number == anotherDec.number)
     {
         return true;
-
     }
     else
     {
@@ -145,7 +136,6 @@ BigDecimalInt& BigDecimalInt :: operator = (BigDecimalInt anotherDec)
     number = anotherDec.number;
     return *this;
 }
-
 //addition implementation.
 string addition(string num1,string num2)
 {
