@@ -4,8 +4,6 @@
 
 //#include "BigDecimalIntClass.h"
 
-
-
 BigReal::BigReal(string realNumber){
 string fraction_part;
         string integer_part;
@@ -171,12 +169,10 @@ istream &operator>>(istream &in, BigReal &realNumber)
     realNumber=BigReal(str);
     return in;
 }
-
-
-void equal_fractions(BigDecimalInt &frac1,BigDecimalInt &frac2) //Puts '0' to make the two fractions equal in Size
+/*void equal_fractions(BigDecimalInt &frac1,BigDecimalInt &frac2) //Puts '0' to make the two fractions equal in Size
 {
-    int s_f1=frac1.Size();
-    int s_f2=frac2.Size();
+    int s_f1=frac1.size();
+    int s_f2=frac2.size();
     string str="";
     while(s_f1 < s_f2) // if the size of the second fraction is greater
     {
@@ -210,7 +206,7 @@ BigDecimalInt rightSfract(BigDecimalInt frac1,BigDecimalInt frac2)
         int i=0;
         string str="";
 
-        while(frac1.getNumber()[i]==frac2.getNumber()[i] && i < frac1.Size()-1)
+        while(frac1.getNumber()[i]==frac2.getNumber()[i] && i < frac1.size()-1)
         {
             str+='0';
             i++;
@@ -229,7 +225,7 @@ void same_sign(BigDecimalInt &integthi,BigDecimalInt &fracthi,BigDecimalInt frac
 {
     string str;
 
-    if(fracthi.Size()>fracfirst.Size())
+    if(fracthi.size()>fracfirst.size())
     {
         str=fracthi.getNumber();
         str=str.substr(1,str.size()-1);
@@ -243,9 +239,9 @@ void same_sign(BigDecimalInt &integthi,BigDecimalInt &fracthi,BigDecimalInt frac
 
 void diff_sign(BigDecimalInt &beforeP,BigDecimalInt &afterP)
 {
-    string strinteger(beforeP.Size(),'0');
-    string strfrac(afterP.Size(),'0');
- 
+    string strinteger(beforeP.size(),'0');
+    string strfrac(afterP.size(),'0');
+
     if(afterP.getNumber()!=strfrac)
     {
         if(beforeP.getNumber()==strinteger)
@@ -261,7 +257,7 @@ void diff_sign(BigDecimalInt &beforeP,BigDecimalInt &afterP)
 
             beforeP = beforeP + BigDecimalInt(beforeP.sign()==0?"+1":"-1");
 
-            for(int i = afterP.Size()-1;i >=0; i--)
+            for(int i = afterP.size()-1;i >=0; i--)
             {
                 if(afterP.getNumber()[i]!= '0' && istrue == 1)
                 {
@@ -282,14 +278,14 @@ void diff_sign(BigDecimalInt &beforeP,BigDecimalInt &afterP)
 
 //===============================================================
 
-BigReal BigReal::operator+(BigReal other)
+/*BigReal BigReal::operator+(BigReal other)
 {
     BigReal num3;
     num3.bPoint= bPoint + other.bPoint;
 
     equal_fractions(aPoint,other.aPoint);
     num3.aPoint = aPoint + other.aPoint;
-    
+
     num3.aPoint = rightSfract(aPoint,other.aPoint);
 
     if(num3.bPoint.sign()==num3.aPoint.sign())
@@ -333,6 +329,4 @@ BigReal BigReal::operator- (BigReal other)
 
     return num3;
 
-}
-
-===============================================================
+}*/
