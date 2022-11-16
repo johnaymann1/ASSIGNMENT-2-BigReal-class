@@ -12,8 +12,6 @@ such as: +, -, <, and >.
 
 #include "BigRealclass.cpp"
 #include "BigReal.h"
-
-
 int main()
 {
     BigReal n1("-1234.24");
@@ -24,11 +22,5 @@ int main()
         cout << n1<<" < "<<n2;
     else if (n1==n2)
         cout<< n1<<" = "<<n2;
-
     return 0;
-
 }
-
-
-
-
