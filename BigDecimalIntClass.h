@@ -10,12 +10,13 @@ that can hold unlimited decimal integer values and performs arithmetic operation
 such as: +, -, <, and >.
  */
 
-#ifndef BIGDECIMALINT_BIGDECIMALINTCLASS_H
-#define BIGDECIMALINT_BIGDECIMALINTCLASS_H
+#ifndef BIGDECIMALINTCLASS_H_INCLUDED
+#define BIGDECIMALINTCLASS_H_INCLUDED
 
 #include <iostream>
 #include <deque>
 #include <regex>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -25,7 +26,7 @@ private:
     bool checkValidInput(string input);
 
 public:
-     char signNumber;
+    char signNumber;
     bool operator < (const BigDecimalInt& anotherDec);
     bool operator > (const BigDecimalInt& anotherDec);
     bool operator == (const BigDecimalInt anotherDec);
@@ -49,4 +50,4 @@ public:
 
 };
 
-#endif //BIGDECIMALINT_BIGDECIMALINTCLASS_H
+#endif  //BIGDECIMALINTCLASS_H_INCLUDED
