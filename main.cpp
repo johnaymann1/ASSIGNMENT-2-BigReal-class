@@ -18,8 +18,10 @@ int main()
 {
     BigReal n1("1234.233");
     BigReal n2("-1234.233");
-    if (n1>n2)
-        cout<<n1;
+    if (n1==n2)
+        cout<<n1 <<"=="<<n2;
+    else
+        cout << n1<<"!="<<n2;
     return 0;
 
 }
