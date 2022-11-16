@@ -12,7 +12,11 @@ such as: +, -, <, and >.
 
 #include "BigDecimalIntClass.h"
 
+void BigDecimalInt :: setSign(char sign){
+    if (signNumber=='-')
+        signNumber='+';
 
+}
 
 // regex function that checks the validation of the input.
 bool BigDecimalInt :: checkValidInput(string input)
