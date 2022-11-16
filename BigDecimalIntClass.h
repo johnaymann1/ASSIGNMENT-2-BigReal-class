@@ -22,10 +22,10 @@ using namespace std;
 class BigDecimalInt{
 private:
     string number;
-    char signNumber;
     bool checkValidInput(string input);
 
 public:
+     char signNumber;
     bool operator < (const BigDecimalInt& anotherDec);
     bool operator > (const BigDecimalInt& anotherDec);
     bool operator == (const BigDecimalInt anotherDec);
@@ -36,6 +36,7 @@ public:
     int size();
     int sign();
     void setNumber(string num);
+    void setSign(char sign);
     string getNumber(){
         return number;
     }
